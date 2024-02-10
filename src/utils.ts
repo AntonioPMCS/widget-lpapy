@@ -48,8 +48,6 @@ export const fetchSLYXPrice = async(externalRequest?:boolean):Promise<number> =>
     return fetch(`${COINGECKO_API_URL}/simple/price?ids=${COINGECKO_LYX_ID}&vs_currencies=${COINGECKO_CURRENCY}`)
       .then(response => response.json())
       .then((data) => { 
-        console.log(data);
-        console.log("LYX price: " + data[COINGECKO_LYX_ID][COINGECKO_CURRENCY])
         return data[COINGECKO_LYX_ID][COINGECKO_CURRENCY];
       })
   } catch (error:any) {
@@ -66,7 +64,7 @@ export const fetchTVL = async() => {
   const provider = connectToBlockchain();
   const pairSLYX:bigint = await (getSLYXContract(provider) as any).balanceOf(getPairContract(provider).getAddress());
   const pairLYX:bigint = await (getWLYXContract(provider) as any).balanceOf(getPairContract(provider).getAddress());
-  console.log("Total liquidity in the pool: " + ethers.formatUnits(pairSLYX + pairLYX, "ether") + " (sLYX + LYX)");
+  // console.log("Total liquidity in the pool: " + ethers.formatUnits(pairSLYX + pairLYX, "ether") + " (sLYX + LYX)");
   return pairSLYX + pairLYX;
 }
 
@@ -80,7 +78,7 @@ export const fetchSevenDayVolume = async():Promise<bigint> => {
   
   var sevenDayVolume = BigInt(0);
   const trades = await pairContract.queryFilter("Swap(address,uint,uint,uint,uint,address)")
-  console.log("Found "+trades.length+" total events.");
+  // console.log("Found "+trades.length+" total events.");
   let i = 0;
   trades.forEach((log: Log | EventLog) => {
     if (log.blockNumber > now - SLOTSIN7DAYS) {
@@ -88,7 +86,7 @@ export const fetchSevenDayVolume = async():Promise<bigint> => {
         sevenDayVolume += (log as EventLog).args[1]+(log as EventLog).args[2]; //either sLYX or LYX
     }
   })
-  console.log(i + "events were counted for the sevenDayVolume")
+  // console.log(i + "events were counted for the sevenDayVolume")
   return sevenDayVolume;
 }
 
