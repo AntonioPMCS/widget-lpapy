@@ -23,7 +23,7 @@ const Widget = () => {
 
   useEffect(() => {
     // Make the API request
-    fetchSLYXPrice(false)
+    fetchSLYXPrice(true)
       .then((price:number) => {
         // Set the fetched data to the state
         setSLYXPrice(price);
