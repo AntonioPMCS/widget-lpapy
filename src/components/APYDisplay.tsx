@@ -15,7 +15,8 @@ const APYDisplay = ({tvl, volume, incentives}:APIDisplayProps) => {
   const [totalStaked, setTotalStaked] = useState(0);
 
   function calculateAPY(tvl:number, volume:number, incentives:number) {
-    const lpAPY = ( ((LP_FEE * volume) + incentives) / tvl ) * 100
+    const estimatedYearlyVolume = (volume / 7) * 365
+    const lpAPY = ( ((LP_FEE * estimatedYearlyVolume) + incentives) / tvl ) * 100
     const stakingAPR = calculateStakingRewards({ totalAtStake: totalStaked}) * 100
     console.log(stakingAPR)
     console.log(stakingAPR*100 + lpAPY)

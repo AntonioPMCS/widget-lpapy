@@ -11,4 +11,4 @@ export const WLYX_ADDRESS = "0x6b6F4cb50e67adb082300b90Af49AF499D41d04E"
 
 export const SLOTSIN7DAYS = 50400;
 export const SLOTSIN1DAY = 7200;
-export const LP_FEE = 0.3;
+export const LP_FEE = 0.003;
