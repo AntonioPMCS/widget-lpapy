@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/widget-lpapy/static/css/main.dfec8eda.css",
+    "main.js": "/widget-lpapy/static/js/main.029245c1.js",
+    "static/js/592.6f3695de.chunk.js": "/widget-lpapy/static/js/592.6f3695de.chunk.js",
+    "index.html": "/widget-lpapy/index.html",
+    "main.dfec8eda.css.map": "/widget-lpapy/static/css/main.dfec8eda.css.map",
+    "main.029245c1.js.map": "/widget-lpapy/static/js/main.029245c1.js.map",
+    "592.6f3695de.chunk.js.map": "/widget-lpapy/static/js/592.6f3695de.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dfec8eda.css",
+    "static/js/main.029245c1.js"
+  ]
+}
